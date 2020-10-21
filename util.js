@@ -1,7 +1,10 @@
-exports.generateText = (name, age) => {
+//coloco como const e não exports para poder usar diretamente no arquivo "util":
+const generateText = (name, age) => {
   // Returns output text
   return `${name} (${age} years old)`;
 };
+
+exports.generateText = generateText;
 
 exports.createElement = (type, text, className) => {
   // Creates a new HTML element and returns it
@@ -11,7 +14,9 @@ exports.createElement = (type, text, className) => {
   return newElement;
 };
 
-const validateInput = (text, notEmpty, isNumber) => {
+//coloco como const ao invés de dar exports.validateInput para que os valores 
+//de validate existam e não quebre o teste "should generate a valid text output":
+const validateInput = (text, notEmpty, isNumber) => { 
   // Validate user input with two pre-defined rules
   if (!text) {
     return false;
@@ -24,6 +29,8 @@ const validateInput = (text, notEmpty, isNumber) => {
   }
   return true;
 };
+
+exports.validateInput = validateInput;
 
 //compõe um teste integrado:
 exports.checkAndGenerateText = (name, age) => {
