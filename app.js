@@ -11,11 +11,15 @@ const addUser = () => {
   // and appends the element to the DOM
   const newUserNameInput = document.querySelector('input#name');
   const newUserAgeInput = document.querySelector('input#age');
-  
+
   const outputText = checkAndGenerateText(
     newUserNameInput.value,
     newUserAgeInput.value
   );
+
+  if(!outputText) {
+    return;
+  }
 
   const userList = document.querySelector('.user-list');
   const element = createElement('li', outputText, 'user-item');
